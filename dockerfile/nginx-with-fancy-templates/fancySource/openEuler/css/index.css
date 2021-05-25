@@ -171,7 +171,7 @@ header .header {
     font-family: FZLT;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1120px) {
     /* header */
     header {
         height: 80px;
@@ -253,13 +253,5 @@ header .header {
     }
     .footer-wrapper .footer-content .footer-right {
         height: unset;
-    }
-}
-@media screen and (min-width: 1000px) and (max-width: 1120px){
-    .header .content {
-        width: 100% !important;
-    }
-    .footer-wrapper .footer-content {
-        width: 100% !important;
     }
 }
