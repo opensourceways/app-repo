@@ -255,11 +255,3 @@ header .header {
         height: unset;
     }
 }
-@media screen and (min-width: 1000px) and (max-width: 1120px){
-    .header .content {
-        width: 100% !important;
-    }
-    .footer-wrapper .footer-content {
-        width: 100% !important;
-    }
-}
