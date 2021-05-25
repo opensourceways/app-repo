@@ -1,0 +1,265 @@
+
+/* 重置样式 */
+body,div,dl,dt,dd,ul,ol,li,.content h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,input,select,textarea,button {margin:0;padding:0}
+fieldset,img {border:0 none}  
+dl,ul,ol,menu,li {list-style:none}   
+blockquote, q {quotes: none}  
+blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}  
+input,select,textarea,button {vertical-align:middle}  
+button {border:0 none;background-color:transparent;cursor:pointer}  
+.content a,.footer-wrapper a{color:#666;text-decoration:none;outline: none;}  
+.content a:active,.content a:hover,.footer-wrapper a:active,.footer-wrapper a:hover {text-decoration:none}   
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal} 
+caption {display:none;}     
+img{vertical-align:top} 
+.clear{clear: both;}
+.clearfix:before,.clearfix:after{content: '';display: table;}
+
+
+/* 字体 */
+@font-face {
+    font-display: swap;
+    font-family: "FZLT";
+    src: url("https://openeuler-website-beijing.obs.cn-north-4.myhuaweicloud.com/Font/FZLTHJW.TTF");
+}
+@font-face {
+    font-family: "Roboto";
+    font-display: swap;
+    src: url(./Roboto-Regular.ttf);
+}
+
+
+/* header */
+body {
+    height: 100%;
+}
+header {
+    height: 60px;
+}
+.header .content,.header-banner {
+    width: 1120px;
+    margin: 0 auto;
+}
+header .header {
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    width: 100%;
+}
+.header a .pc-logo {
+    width: 170px;
+    height: 60px;
+    display: inline-block;
+}
+.header a .mobile-logo {
+    display: none;
+}
+.header-banner .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-banner .content .text {
+    max-width: 576px;
+}
+.header-banner .content .text h1 {
+    font-size: 36px;
+    color: #000000;
+    line-height: 44px;
+    margin-bottom: 30px;
+    font-family: Roboto;
+    text-align: left;
+}
+.header-banner .content .text p {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 32px;
+    font-family: Roboto;
+}
+.header-banner .content .text p a{
+    color: #002FA7;
+    font-family: Roboto;
+}
+.header-banner .content .image h1 {
+    display: none;
+    font-family: Roboto;
+}
+
+
+/* footer */
+
+.center-box {
+    height: calc(100vh - 600px);
+}
+
+.footer-wrapper {
+    height: 176px;
+    background-color: #111;
+}
+.footer-wrapper .footer-content {
+    margin: 0 auto;
+    height: 100%;
+    width: 1120px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-wrapper .footer-content .footer-left {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 16px;
+}
+.footer-wrapper .footer-content .footer-left .footer-mail {
+    color: #fff;
+    margin-top: 17px;
+    font-family: Roboto;
+}
+.footer-wrapper .footer-content .footer-center {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+.footer-wrapper .footer-content .footer-center .footer-copyright {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    margin-top: 21px;
+    font-size: 12px;
+    font-family: FZLT;
+}
+.footer-wrapper .footer-content .footer-center .right-list {
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    font-size: 14px;
+}
+.footer-wrapper .footer-content .footer-center .right-list li {
+    padding: 0 15px;
+}
+.footer-wrapper .footer-content .footer-center .right-list li a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: FZLT;
+}
+.footer-wrapper .footer-content .footer-center .right-list li:nth-child(2) {
+    padding: 0 16px;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+.footer-wrapper .footer-content .footer-right {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-family: FZLT;
+}
+.footer-wrapper .footer-content .footer-right .footer-qrcode {
+    width: 78px;
+    height: 78px;
+}
+.footer-wrapper .footer-content .footer-right .qrcode-desc {
+    color: #fff;
+    margin-top: 17px;
+    text-align: center;
+    font-family: FZLT;
+}
+
+@media screen and (max-width: 1000px) {
+    /* header */
+    header {
+        height: 80px;
+    }
+    .header .content,.header-banner {
+        width: 100%;
+    }
+    .header .content{
+        padding: 12px 15px 17px 15px;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+    }
+    .header a .pc-logo {
+        display: none;
+    }
+    .header a .mobile-logo {
+        display: block;
+        width: 142px;
+        height: auto;
+    }
+    .header span {
+        display: none;
+    }
+    .header-banner .content {
+        display: flex;
+        flex-direction: column-reverse;
+        padding-top: 40px;
+    }
+    .header-banner .content .text {
+        max-width: 315px;
+        margin: 20px auto 0 auto;
+    }
+    .header-banner .content .text h1 {
+        display: none;
+    }
+    .header-banner .content .text p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .header-banner .content .image img {
+        width: 300px;
+        height: 216px;
+        display: block;
+        margin: 0 auto;
+    }
+    .header-banner .content .image h1{
+        display: block;
+        font-size: 24px;
+        color: #000000;
+        line-height: 34px;
+        margin-bottom: 10px;
+    }
+
+
+    /* footer */
+    .footer-wrapper {
+        height: 328px;
+    }
+    .footer-wrapper .footer-content {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .footer-wrapper .footer-content .footer-left {
+        height: unset;
+        font-size: 14px;
+        align-items: center;
+    }
+    .footer-wrapper .footer-content .footer-left .footer-mail {
+        margin-top: 10px;
+    }
+    .footer-wrapper .footer-content .footer-center {
+        align-items: unset;
+        height: unset;
+        order: 1;
+    }
+    .footer-wrapper .footer-content .footer-center .footer-copyright {
+        margin-top: 16px;
+    }
+    .footer-wrapper .footer-content .footer-right {
+        height: unset;
+    }
+}
+@media screen and (min-width: 1000px) and (max-width: 1120px){
+    .header .content {
+        width: 100% !important;
+    }
+    .footer-wrapper .footer-content {
+        width: 100% !important;
+    }
+}
