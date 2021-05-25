@@ -3,8 +3,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: repo-configmap
-  namespace: repo
 data:
+  _settings.yaml: |
+    #used for fscrawler settings
   ssh.pub: |
     #used for connection via ssh
   rsyncd.conf: |
@@ -60,7 +61,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: repo-server
-  namespace: repo
   labels:
     app: repo-nginx-server
 spec:
@@ -84,8 +84,20 @@ spec:
             - mountPath: /etc/nginx/conf/conf.d/default.conf
               name: repo-nginx-configmap-volume
               subPath: default.conf
-            - mountPath: /repo
-              name: repo-data-volume
+        - name: fscrawler-client
+          image: opensourceway/fscrawler:0.0.1
+          imagePullPolicy: "Always"
+          volumeMounts:
+            - mountPath: /fscrawler/_settings.yaml
+              name: repo-nginx-configmap-volume
+              subPath: _settings.yaml
+          command:
+            - /bin/sh
+            - -c
+            - |
+              mkdir -p /.fscrawler/openeuler
+              cp /fscrawler/_settings.yaml ~/.fscrawler/openeuler/_settings.yaml
+              exec fscrawler openeuler
         - name: rsync-server
           image: opensourceway/rsyncd:0.0.5
           imagePullPolicy: "Always"
@@ -93,9 +105,6 @@ spec:
             - mountPath: /etc/rsyncd.conf
               name: repo-nginx-configmap-volume
               subPath: rsyncd.conf
-            - mountPath: /etc/rsyncd.secrets.ro
-              name: website-secrets-volume
-              subPath: rsyncd_secrets
             - mountPath: /root/.ssh/authorized_keys.ro
               name: repo-nginx-configmap-volume
               subPath: ssh.pub
@@ -120,7 +129,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: repo-service
-  namespace: repo
 spec:
   externalTrafficPolicy: Local
   ports:
